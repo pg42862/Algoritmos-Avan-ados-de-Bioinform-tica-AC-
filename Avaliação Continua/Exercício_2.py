@@ -82,7 +82,7 @@ class SuffixTree:
                 f_1.extend(s) 
         return(f_0, f_1)
 
-    def largestCommonSubstring(self): #vai correr as duas seq e vai ver quais os aonde é que existe um match maior onde as duas seq e dá isso como output
+    def largestCommonSubstring(self): #corre duas sequencias-> match maior nas duas sequencias
         f_match = ''
         f_cont = 0
         for i in range(len(self.seq1)):
