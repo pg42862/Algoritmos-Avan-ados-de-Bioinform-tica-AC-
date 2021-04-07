@@ -230,7 +230,7 @@ class MotifFinding:
 
 # Exercícos da aula (pseudo contagens)
 
-    def scoreEX(self, m): #responsável por calcular a contagem com as pseudo contagens
+    def scoreEX(self, m): #responsavel por calcular a contagem com as pseudo contagens
             score = 0
             motif = self.createMotifFromIndexes(m)
             motif.doCounts()
@@ -248,7 +248,7 @@ class MotifFinding:
                 score += maxcol 
             return score
 
-    def probabSeqEX (self, seq, pwm): #vai calcular a probabilidade de a seq fazer parte deste quadro sendo que todos os elementos do quadro n tem valores negativos!
+    def probabSeqEX (self, seq, pwm): #calcula a probabilidade de a seq fazer parte deste quadro sendo que todos os elementos do quadro n tem valores negativos!
 
         res = 1.0
         for i in range(self.motifSize):
@@ -256,7 +256,7 @@ class MotifFinding:
             res *= pwm[lin][i]
         return res
     
-    def mostProbableSeqEX(self, seq, pwm): #vai ver qual a posição inicial da subseq de uma seq de comprimento indefenido encaixa melhor no quandro de motifs das seqs
+    def mostProbableSeqEX(self, seq, pwm): #ve qual a posição inicial da subseq de uma seq de comprimento indefenido encaixa melhor no quandro de motifs das seqs
         maximo = -1.0
         maxind = -1
         for k in range(len(seq)-self.motifSize):
@@ -266,7 +266,7 @@ class MotifFinding:
                 maxind = k
         return maxind
 
-    def probAllPositionsEX(self, seq, pwm): #este em vez de calcular a probabilidade de acontecer devolve uma lista com as probabilidades de acontecer em cada letra da seq
+    def probAllPositionsEX(self, seq, pwm): #em vez de calcular a probabilidade de acontecer, devolve uma lista com as probabilidades de acontecer em cada letra da seq
         res = []
         for k in range(len(seq)-self.motifSize+1):
             res.append(self.probabSeqEX(seq, pwm))
@@ -279,12 +279,12 @@ class MotifFinding:
         for i in range(len(self.seqs)):
             s[i] = randint(0, self.seqSize(i) - self.motifSize)
         #Passo 2
-        melhorscore = self.scoreEX(s) #vai fazer o score consoante o novo score2 que não vai conter valores 0 já com as pseudos contagens
+        melhorscore = self.scoreEX(s) #vai fazer o score consoante o novo score que não vai conter valores 0 (pseudos contagens)
         improve = True
         while improve:
             motif = self.createMotifFromIndexes(s)
             motif.createPWM()
-            newPWM = [] #vai contruir a matriz PWM sem nenhum numero negativo já com as pseudo contagens
+            newPWM = [] #constroi a matriz PWM sem nenhum numero negativo (pseudo contagens-)
             for k in range(len(motif.pwm)):
                 linhas = []
                 for t in range(len(motif.pwm[0])):
@@ -335,7 +335,7 @@ class MotifFinding:
 
 def test1():  
     sm = MotifFinding()
-    sm.readFile("C:\Users\rafes\Documents\GitHub\Algoritmos-Avan-ados-de-Bioinform-tica-AC-\Aula 5\exemploMotifs.txt", 'dna')
+    sm.readFile("C:/Users/rafes/Documents/GitHub/Algoritmos-Avan-ados-de-Bioinform-tica-AC-/Aula 5/exemploMotifs.txt", "dna")
     sol = [25,20,2,55,59]
     sa = sm.score(sol)
     print(sa)
@@ -366,7 +366,7 @@ def test2():
 
 def test3():
     mf = MotifFinding()
-    mf.readFile("C:\Users\rafes\Documents\GitHub\Algoritmos-Avan-ados-de-Bioinform-tica-AC-\Aula 5\exemploMotifs.txt","dna")
+    mf.readFile("C:/Users/rafes/Documents/GitHub/Algoritmos-Avan-ados-de-Bioinform-tica-AC-/Aula 5/exemploMotifs.txt","dna")
     print ("Branch and Bound:")
     sol = mf.branchAndBound()
     print ("Solution: " , sol)
@@ -375,7 +375,7 @@ def test3():
 
 def test4():
     mf = MotifFinding()
-    mf.readFile("C:\Users\rafes\Documents\GitHub\Algoritmos-Avan-ados-de-Bioinform-tica-AC-\Aula 5\exemploMotifs.txt","dna")
+    mf.readFile("C:/Users/rafes/Documents/GitHub/Algoritmos-Avan-ados-de-Bioinform-tica-AC-/Aula 5/exemploMotifs.txt","dna")
     print("Heuristic stochastic")
     sol = mf.heuristicStochastic()
     print ("Solution: " , sol)
@@ -388,7 +388,7 @@ def test4():
 
 def testEX():
     mf = MotifFinding()
-    mf.readFile("C:\Users\rafes\Documents\GitHub\Algoritmos-Avan-ados-de-Bioinform-tica-AC-\Aula 5\exemploMotifs.txt","dna")
+    mf.readFile("C:/Users/rafes/Documents/GitHub/Algoritmos-Avan-ados-de-Bioinform-tica-AC-/Aula 5/exemploMotifs.txt","dna")
     print("Heuristic stochasticEX")
     sol = mf.heuristicStochasticex1_al5()
     print ("SolutionEX: " , sol)
