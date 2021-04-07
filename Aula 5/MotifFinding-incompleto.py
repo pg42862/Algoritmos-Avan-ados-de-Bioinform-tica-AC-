@@ -228,7 +228,7 @@ class MotifFinding:
         return ind-1
 
 
-# Exercícos da aula já com pseudo contagens ----------------------------------------------------------------------------
+# Exercícos da aula (pseudo contagens)
 
     def scoreEX(self, m): #responsável por calcular a contagem com as pseudo contagens
             score = 0
