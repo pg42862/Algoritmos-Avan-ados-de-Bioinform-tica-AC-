@@ -47,8 +47,7 @@ class EAMotifsReal (EvolAlgorithm):
 
     def initPopul(self, indsize):
         maxvalue = self.motifs.seqSize(0) - self.motifs.motifSize
-        self.popul = PopulReal(self.popsize, indsize,
-                              maxvalue, [])
+        self.popul = PopulReal(self.popsize, indsize, [])
 
     def vec_to_pwm(self,v):
         n_alph = len(self.motifs.alphabet)
