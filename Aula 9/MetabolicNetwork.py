@@ -184,9 +184,30 @@ def test3():
     d = mrn.prob_degree("out")# dicionario
     for x in sorted(d.keys()):#para cada key no dicionario d por ordem crescente
         print (x, 't', d[x])#grau, tempo, value dessa key(grau)
+        
+def test4():
+    mrn = MetabolicNetwork("metabolite-metabolite")
+    mrn.load_from_file("ecoli.txt")
+    #mrn.print_graph()
+    print ('Closeness Centrality em M_dhap_c:',mrn.closeness_centrality('M_dhap_c'))
+    #print ('Betweenness Centrality:',mrn.betweenness_centrality('M_dhap_c'))
+    print ('Centralidade de Grau no em M_dhap_c:',mrn.centralidade_de_grau_no('M_dhap_c'))
+    print ('Closeness Centrality em M_2oph_c:',mrn.closeness_centrality('M_2oph_c'))
+    #print ('betweenness_centrality:',mrn.betweenness_centrality('M_2oph_c'))
+    print ('Centralidade de Grau no em M_2oph_c:',mrn.centralidade_de_grau_no('M_2oph_c'))
+    print ('Closeness Centrality em M_glcn_e:',mrn.closeness_centrality('M_glcn_e'))
+    #print ('betweenness_centrality:',mrn.betweenness_centrality('M_glcn_e'))
+    print ('Centralidade de Grau no em M_glcn_e:',mrn.centralidade_de_grau_no('M_glcn_e'))
 
+    #Metabolitos:
+    #M_2oph_c
+    #M_glcn_e
+    #M_glyb_e
+    #M_phpyr_c
+    
 #test1()
 print()
 #test2()
-test3()
+#test3()
+test4()
 
